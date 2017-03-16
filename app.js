@@ -34,5 +34,11 @@ app.get('/insert', (req, res) => {
   console.log('successful');
 })
 
+app.get('/books/:id', (req, res) => {
+  Book.findOne({_id: req.params.id}).exec(function(err, book) {
+    console.log(book);
+    res.json(book);
+  })
+});
 
 console.log('done');
